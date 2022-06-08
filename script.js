@@ -26,3 +26,16 @@ switch(operator){
         return divide(a,b);
 }
 }
+
+
+// to do: evenlistener on every number
+// then i add a textcontent of what the eventlistener variable is?
+function showUp(){
+    const display = document.getElementsByClassName("display")
+    const btn = document.querySelector('button[type="digit"]')
+    console.log(btn);
+    btn.addEventListener("click", () => {
+        display.insertAdjacentText("beforeend", "1")
+    });
+
+}
