@@ -14,3 +14,8 @@ align-items: center;
     margin-bottom: 5px;
     border: 1px solid black;
 }
+
+.calculator {
+    background-color: gray;
+    padding: 5px;
+}
