@@ -27,15 +27,8 @@ switch(operator){
 }
 }
 
-
-// to do: evenlistener on every number
-// then i add a textcontent of what the eventlistener variable is?
-function showUp(){
+// prints clicked button onto display screen
+function showUp(clickedElement){
     const display = document.getElementsByClassName("display")
-    const btn = document.querySelector('button[type="digit"]')
-    console.log(btn);
-    btn.addEventListener("click", () => {
-        display.insertAdjacentText("beforeend", "1")
-    });
-
+    
 }
