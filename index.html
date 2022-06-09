@@ -14,36 +14,36 @@
 
     <div class="display">
         <p>
-            
+
         </p>
     </div>
 
     <div class="first-row">
         <button type="digit" id="seven" onclick="showUp(this)">7</button>
         <button type="digit" id="eight" onclick="showUp(this)">8</button>
-        <button type="digit" id="nine" onclick="showUp()">9</button>
-        <button type="multiply">*</button>
+        <button type="digit" id="nine" onclick="showUp(this)">9</button>
+        <button type="multiply" onclick="operator(this)">*</button>
     </div>
 
     <div class="second-row">
-        <button type="digit" id="four" onclick="showUp()">4</button>
-        <button type="digit" id="five" onclick="showUp()">5</button>
-        <button type="digit" id="six" onclick="showUp()">6</button>
-        <button type="divide">/</button>
+        <button type="digit" id="four" onclick="showUp(this)">4</button>
+        <button type="digit" id="five" onclick="showUp(this)">5</button>
+        <button type="digit" id="six" onclick="showUp(this)">6</button>
+        <button type="divide" onclick="operator(this)">/</button>
     </div>
 
     <div class="third-row">
-        <button type="digit" id="one" onclick="showUp()">1</button>
-        <button type="digit" id="two" onclick="showUp()">2</button>
-        <button type="digit" id="three" onclick="showUp()">3</button>
-        <button type="one">+</button>
+        <button type="digit" id="one" onclick="showUp(this)">1</button>
+        <button type="digit" id="two" onclick="showUp(this)">2</button>
+        <button type="digit" id="three" onclick="showUp(this)">3</button>
+        <button type="one" onclick="operator(this)">+</button>
     </div>
 
     <div class="fourth-row">
         <button type="period">.</button>
-        <button type="digit" id="zero" onclick="showUp()">0</button>
-        <button type="equals">=</button>
-        <button type="subtract">-</button>
+        <button type="digit" id="zero" onclick="showUp(this)">0</button>
+        <button type="equals" onclick="equals()">=</button>
+        <button type="subtract" onclick="operator(this)">-</button>
     </div>
 
     <div class="fifth-row">

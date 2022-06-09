@@ -27,8 +27,33 @@ switch(operator){
 }
 }
 
+// used to store inputs in calculator
+let values = [];
+
 // prints clicked button onto display screen
 function showUp(clickedElement){
+    const display = document.getElementsByClassName("display");
+    display[0].textContent += clickedElement.textContent;
+
+}
+
+// clears display screen and pushes first input into values array
+// also stores chosen operator into array
+function operator(clickedElement){
     const display = document.getElementsByClassName("display")
-    
+    values.push(parseInt(display[0].textContent));
+    values.push(clickedElement.textContent);
+    display[0].textContent = "";
+    console.log(values);
+
+}
+// operates on the two numbers being input, saves the result,
+// and shows the result on the screen
+function equals(){
+    const display = document.getElementsByClassName("display");
+    values.push(parseInt(display[0].textContent));
+    console.log(operate(values[0], values[1], values[2]));
+    let result = operate(values[0], values[1], values[2]);
+    display[0].textContent = "";
+    display[0].textContent += result;
 }
