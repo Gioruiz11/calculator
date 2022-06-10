@@ -45,7 +45,12 @@ function operator(clickedElement){
     values.push(clickedElement.textContent);
     display[0].textContent = "";
     console.log(values);
-
+    // TODO: when this is called for a second time, evaluate
+    // the 3 values, then save the result as the first value
+    // in the next expression
+    if(values.length == 3){
+        operate(values[0], values[1], values[2]);
+    }
 }
 // operates on the two numbers being input, saves the result,
 // and shows the result on the screen
@@ -56,4 +61,11 @@ function equals(){
     let result = operate(values[0], values[1], values[2]);
     display[0].textContent = "";
     display[0].textContent += result;
+}
+
+// clears the memory and the screen
+function clears(){
+    values = [];
+    const display = document.getElementsByClassName("display");
+    display[0].textContent = "";
 }
