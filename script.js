@@ -53,6 +53,9 @@ function operator(clickedElement){
         console.log("hello");
     }
 
+    // TODO: fix equals NaN logic
+    // make the calculator look nice
+
     values.push(clickedElement.textContent);
     display[0].textContent = "";
     console.log(values);
