@@ -64,6 +64,7 @@ function equals(){
     const display = document.getElementsByClassName("display");
 
     values.push(parseInt(display[0].textContent));
+    if(!(isNaN(values[0]))) {
     console.log(operate(values[0], values[1], values[2]));
     let result = operate(values[0], values[1], values[2]);
 
@@ -72,6 +73,7 @@ function equals(){
 
     display[0].textContent = "";
     display[0].textContent += roundedResult;
+}
 
 }
 
