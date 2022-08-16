@@ -5,52 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator Project</title>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <script src= "script.js" defer></script>
 </head>
 <body>
-  <div class="calculator">
+    <div class="calculator">
+        <div class="screen">
+            <p class="calc-screen"></p>
+        </div>
+        <div class="keys">
+            <div class="inputkeys">
+                <button class="operands" value="7"><span>7</span></button>
+                <button class="operands" value="8"><span>8</span></button>
+                <button class="operands" value="9"><span>9</span></button>
+                <button class="operators" value="*"><span>x</span></button>
 
+                <button class="operands" value="4"><span>4</span></button>
+                <button class="operands" value="5"><span>5</span></button>
+                <button class="operands" value="6"><span>6</span></button>
+                <button class="operators" value="/"><span>/</span></button>
 
-    <div class="display">
-        <p>
+                <button class="operands" value="1"><span>1</span></button>
+                <button class="operands" value="2"><span>2</span></button>
+                <button class="operands" value="3"><span>3</span></button>
+                <button class="operators" value="+"><span>+</span></button>
 
-        </p>
+                <button class="dot" value="."><span>.</span></button>
+                <button class="operands" value="0"><span>0</span></button>
+                <button class="operate"><span>=</span></button> 
+                <button class="operators" value="-"><span>-</span></button>
+
+                <button class="clear"><span>C</span></button>
+                <button class="remove"><span>Del</span></button>
+            </div>
+        </div>
     </div>
-
-    <div class="first-row">
-        <button type="digit" id="seven" onclick="showUp(this)">7</button>
-        <button type="digit" id="eight" onclick="showUp(this)">8</button>
-        <button type="digit" id="nine" onclick="showUp(this)">9</button>
-        <button type="multiply" onclick="operator(this)">*</button>
-    </div>
-
-    <div class="second-row">
-        <button type="digit" id="four" onclick="showUp(this)">4</button>
-        <button type="digit" id="five" onclick="showUp(this)">5</button>
-        <button type="digit" id="six" onclick="showUp(this)">6</button>
-        <button type="divide" onclick="operator(this)">/</button>
-    </div>
-
-    <div class="third-row">
-        <button type="digit" id="one" onclick="showUp(this)">1</button>
-        <button type="digit" id="two" onclick="showUp(this)">2</button>
-        <button type="digit" id="three" onclick="showUp(this)">3</button>
-        <button type="one" onclick="operator(this)">+</button>
-    </div>
-
-    <div class="fourth-row">
-        <button type="period">.</button>
-        <button type="digit" id="zero" onclick="showUp(this)">0</button>
-        <button type="equals" onclick="equals()">=</button>
-        <button type="subtract" onclick="operator(this)">-</button>
-    </div>
-
-    <div class="fifth-row">
-        <button type="clear" onclick="clears()">CLEAR</button>
-        <button type="delete">DEL</button>
-    </div>
-</div>
     
 </body>
 </html>

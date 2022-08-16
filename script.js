@@ -1,88 +1,105 @@
-function add(a, b){
+// Basic operations
+function add(a , b){
     return a + b;
-}
-
+};
 function subtract(a, b){
     return a - b;
-}
-
-function multiply(a, b){
+};
+function multiply(a,b){
     return a * b;
-}
-
-function divide(a, b){
-    return a / b;
-}
-
-function operate(a, operator, b){
-switch(operator){
-    case "+":
-        return add(a,b);
-    case "-":
-        return subtract(a,b);
-    case "*":
-        return multiply(a,b);
-    case "/":
-        return divide(a,b);
-}
-}
-
-// used to store inputs in calculator
-let values = [];
-
-// prints clicked button onto display screen
-function showUp(clickedElement){
-    const display = document.getElementsByClassName("display");
-    display[0].textContent += clickedElement.textContent;
-
-}
-
-// clears display screen and pushes first input into values array
-// also stores chosen operator into array
-function operator(clickedElement){
-    const display = document.getElementsByClassName("display")
-    values.push(parseInt(display[0].textContent));
-
-    // when this is called for a second time, evaluate
-    // the 3 values, then save the result as the first value
-    // in the next expression
-    if(values.length === 3){
-        let result = operate(values[0], values[1], values[2]);
-        values = [];
-        values.push(result);
-        console.log("hello");
+};
+function divide(a,b){
+    if (b == 0){
+        return "Error";
     }
+    return a / b;
+};
 
-    // TODO: fix equals NaN logic
-    // make the calculator look nice
+function operate(a, char, b) {
+    if (char == "*"){
+        return +(multiply(a,b)).toFixed(6);
+    }
+    if (char == "+"){
+        return +(add(a,b)).toFixed(6);
+    }
+    if (char == "-"){
+        return +(subtract(a,b)).toFixed(6);
+    }
+    if (char == "/"){
+        return +(divide(a,b)).toFixed(6);
+    }
+};
 
-    values.push(clickedElement.textContent);
-    display[0].textContent = "";
-    console.log(values);
-}
+// Gather querySelectors to use in code
+const screen = document.querySelector(".calc-screen");
+const operands = document.querySelectorAll(".operands");
+const equals = document.querySelector(".operate");
+const operators = document.querySelectorAll(".operators");
+const clear = document.querySelector(".clear");
+const dot = document.querySelector(".dot");
+const deleteLast = document.querySelector(".remove");
 
-// operates on the two numbers being input, saves the result,
-// and shows the result on the screen
-function equals(){
-    const display = document.getElementsByClassName("display");
+let num1;
+let num2;
+let character;
+let numbers;
 
-    values.push(parseInt(display[0].textContent));
-    if(!(isNaN(values[0]))) {
-    console.log(operate(values[0], values[1], values[2]));
-    let result = operate(values[0], values[1], values[2]);
+operands.forEach((button) => {
+    screen.textContent = "";
+    button.addEventListener("click", (e) => {
+        if(screen.textContent == "Error") return;
+        screen.textContent += e.target.value;
+        storeInput();
+})});
+operators.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        let myRegEx = /[^0-9.]/g;
+        if (screen.textContent == ""){
+            return;
+        }
+        if(screen.textContent == "Error") return;
+        if (myRegEx.test(screen.textContent)) { 
+            // checks whether the screen already has an operator
+            //and evaluates the inputs before appending the operator
+        
+            screen.textContent = operate(num1, character, num2);
+        }
+        screen.textContent += e.target.value;
+        storeInput();
+})});
+equals.addEventListener("click", function(){
+    screen.textContent = operate(num1, character, num2);
+});
 
-    // in order to round long decimals to 6 places
-    let roundedResult = Math.round((result + Number.EPSILON) * 1000000) / 1000000;
+clear.addEventListener("click", ()=> clearData());
 
-    display[0].textContent = "";
-    display[0].textContent += roundedResult;
-}
+dot.addEventListener("click", (e) =>{
+    if (num2 == undefined){
+        if(screen.textContent.includes(".")) return;
+    } else if(num2.toString().includes(".")) {
+        return;
+    }
+    screen.textContent += e.target.value;
+});
 
-}
+deleteLast.addEventListener("click", ()=>{
+    screen.textContent = screen.textContent.slice(0, -1);
+})
 
-// clears the memory and the screen
-function clears(){
-    values = [];
-    const display = document.getElementsByClassName("display");
-    display[0].textContent = "";
+function storeInput(){
+    numbers = screen.textContent;
+    for (let i = 0; i < numbers.length; i++){
+        if (numbers[i] == "+" || numbers[i] == "-" || numbers[i] == "/" || numbers[i] == "*"){
+            character = numbers[i];
+            num1 = parseFloat(numbers.slice(0, i));
+            num2 = parseFloat(numbers.slice( i + 1, numbers.length));
+        }
+    }
+};
+
+function clearData() {
+    screen.textContent = "";
+    num1 = undefined;
+    num2 = undefined;
+    character = undefined;
 }
