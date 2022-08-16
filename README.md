@@ -10,4 +10,4 @@ A calculator created using HTML/CSS/Javascript. It has memory storage and basic 
 Live view: [Here](https://gioruiz11.github.io/calculator/)
 
 # Screenshot
-![image](https://user-images.githubusercontent.com/52205843/184961627-ff62ea90-c56d-440f-b49b-8fca6038a735.png)
+![image](https://user-images.githubusercontent.com/52205843/184961821-81367e06-7a10-456c-af3a-348a13c04355.png)
